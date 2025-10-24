@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zephyr — Weather Forecast</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+  <main class="w-full max-w-4xl">
+    <header class="mb-6 flex items-center justify-between">
+      <h1 class="text-2xl font-semibold">🌤 Weather Forecast</h1>
+      <!-- <p class="text-sm text-slate-600">Lightweight, clean & accurate</p> -->
+    </header>
+
+    <section id="app" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- LEFT PANEL -->
+      <div class="col-span-1 space-y-4">
+        <div class="card p-4 rounded-2xl shadow">
+          <label class="block text-sm mb-2 font-medium">Search city</label>
+          <div class="flex gap-2">
+            <input id="cityInput" class="flex-1 rounded-md p-2 border border-slate-300" placeholder="e.g., Mumbai" />
+            <button id="searchBtn" class="px-4 py-2 rounded-md bg-sky-600 text-white hover:bg-sky-700">Search</button>
+          </div>
+
+          <div class="mt-3 flex items-center gap-2">
+            <button id="locBtn" class="text-sm px-3 py-1 rounded-md border hover:bg-slate-100">Use my location</button>
+            <div class="ml-auto flex items-center gap-2">
+              <label class="text-sm">Unit (today):</label>
+              <button id="unitToggle" class="px-3 py-1 rounded-md border hover:bg-slate-100">°C</button>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <label class="block text-sm mb-1 font-medium">Recent searches</label>
+            <select id="recentSelect" class="w-full p-2 rounded-md border">
+              <option value="">-- none yet --</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="alerts" class="card p-4 rounded-2xl shadow hidden"></div>
+
+        <div id="errorBox" class="card p-3 rounded-2xl shadow hidden text-sm text-red-700 bg-red-50"></div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="col-span-1 md:col-span-2">
+        <div id="todayCard" class="card p-6 rounded-3xl shadow flex items-center gap-6">
+          <div>
+            <div id="locationName" class="text-xl font-semibold">Search a city or use location</div>
+            <div id="todayDesc" class="text-sm text-slate-600 mt-1">Current conditions will show here</div>
+            <div class="mt-4 flex items-end gap-4">
+              <div>
+                <div id="todayTemp" class="text-5xl font-bold">--°</div>
+                <div id="feelsLike" class="text-sm text-slate-500 mt-1"></div>
+              </div>
+              <div class="ml-auto text-right">
+                <div id="todayExtra" class="text-sm"></div>
+              </div>
+            </div>
+          </div>
+          <div id="todayIcon" class="w-28 h-28 flex items-center justify-center"></div>
+        </div>
+
+        <!-- 5-DAY FORECAST -->
+        <div id="forecast" class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4"></div>
+      </div>
+    </section>
+
+    <div id="toast" class="toast hidden">
+      <div class="p-3 rounded-lg bg-slate-800 text-white"></div>
+    </div>
+
+    <footer class="mt-8 text-xs text-slate-500 text-center">
+      Built by Deepak.
+    </footer>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>

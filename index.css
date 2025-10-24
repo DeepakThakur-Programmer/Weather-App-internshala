@@ -1,0 +1,30 @@
+html, body {
+  height: 100%;
+  background: linear-gradient(180deg, #e0f2ff, #f8fafc);
+}
+
+.card {
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.6);
+  transition: background 0.3s ease;
+}
+
+.rainy {
+  background: linear-gradient(180deg, #4f6b8a, #1f2f44);
+  color: #fff;
+}
+
+.card.rainy {
+  background: rgba(10, 25, 40, 0.45);
+}
+
+.hidden {
+  display: none;
+}
+
+.toast {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  z-index: 60;
+}
